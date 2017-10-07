@@ -1,0 +1,7 @@
+sed -i '1d' *.txt 删除第一行
+sed -i '2d' *.txt 删除第二行
+
+awk -F , 'FNR==1&&FNR!=NR{i=1;while(i in col)print col[i++];delete col}{for(i=1;i<=NF;i++){gsub(/\r/,"",$i);col[i]=col[i] $i ","}}END{i=1;while(i in col) print col[i++]}' 8.6-*.csv>0.csv
+
+
+awk -F , 'FNR==1&&FNR!=NR{i=1;while(i in col)print col[i++];delete col}{for(i=1;i<=NF;i++){gsub(/\r/,"",$i);col[i]=col[i] $i ","}}END{i=1;while(i in col) print col[i++]}' csv.txt>8.6.csv
